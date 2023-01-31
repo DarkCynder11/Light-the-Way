@@ -368,7 +368,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.61
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &432882116
 MeshRenderer:
@@ -1502,7 +1502,7 @@ GameObject:
   - component: {fileID: 2091361699}
   - component: {fileID: 2091361700}
   - component: {fileID: 2091361701}
-  - component: {fileID: 2091361703}
+  - component: {fileID: 2091361702}
   m_Layer: 0
   m_Name: Staff Orb Light
   m_TagString: Untagged
@@ -1598,9 +1598,9 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.39
+  m_Radius: 0.36
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2091361703
+--- !u!114 &2091361702
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

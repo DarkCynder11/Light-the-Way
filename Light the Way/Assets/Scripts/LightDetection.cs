@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightDetetion : MonoBehaviour
+public class LightDetection : MonoBehaviour
 {
 
     void OnTriggerEnter(Collider other)
