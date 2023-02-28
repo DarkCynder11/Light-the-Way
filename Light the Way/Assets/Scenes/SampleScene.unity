@@ -1293,7 +1293,6 @@ GameObject:
   - component: {fileID: 1874183301}
   - component: {fileID: 1874183300}
   - component: {fileID: 1874183304}
-  - component: {fileID: 1874183305}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Blue
@@ -1395,22 +1394,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1874183305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1874183299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2888577f033d34c4ba41048dd836660c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lightToCheck: {fileID: 2091361700}
-  interactableObject: {fileID: 1874183299}
-  shaderName: Green
-  shaderColor: {r: 0, g: 1, b: 0.11260939, a: 1}
 --- !u!1 &1880536719
 GameObject:
   m_ObjectHideFlags: 0
@@ -1425,7 +1408,7 @@ GameObject:
   - component: {fileID: 1880536720}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Green
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1629,3 +1612,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2251833a125c8ac4c9efd89bd22dd997, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colourLight: {fileID: 2091361700}
