@@ -11,7 +11,7 @@ public class ColourSelector : MonoBehaviour
         Red,
         Green,
         Blue,
-        Yellow
+        Yellow,
     };
     //Enums don't naturally tell you how many items they have so we have to keep track of it ourselves
     private int numberOfColours;
