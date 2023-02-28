@@ -10,7 +10,8 @@ public class ColourSelector : MonoBehaviour
         White,
         Red,
         Green,
-        Blue
+        Blue,
+        Yellow
     };
     //Enums don't naturally tell you how many items they have so we have to keep track of it ourselves
     private int numberOfColours;
@@ -80,6 +81,10 @@ public class ColourSelector : MonoBehaviour
 
             case LightColour.Green:
                 testLight.color = Color.green;
+                break;
+
+            case LightColour.Yellow:
+                testLight.color = Color.yellow;
                 break;
         }
     }

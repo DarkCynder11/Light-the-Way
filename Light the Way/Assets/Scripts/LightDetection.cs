@@ -24,6 +24,10 @@ public class LightDetection : MonoBehaviour
         {
             print("shows green object");
         }
+        else if (other.gameObject.tag == "Yellow" && colourLight.color == Color.yellow)
+        {
+            print("shows yellow object");
+        }
     }
 
     void OnTriggerStay(Collider other)
@@ -36,6 +40,10 @@ public class LightDetection : MonoBehaviour
         {
             print("interactable");
         }
+        else if (other.gameObject.tag == "Yellow" && colourLight.color == Color.yellow)
+        {
+            print("interactable");
+        }
     }
 
     void OnTriggerExit(Collider other)
@@ -45,6 +53,10 @@ public class LightDetection : MonoBehaviour
             print("changes back to gray");
         }
         else if (other.gameObject.tag == "Green" && colourLight.color == Color.green)
+        {
+            print("changes back to gray");
+        }
+        else if (other.gameObject.tag == "Yellow" && colourLight.color == Color.yellow)
         {
             print("changes back to gray");
         }
