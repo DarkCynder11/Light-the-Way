@@ -5,6 +5,14 @@ using UnityEngine;
 public class LightDetection : MonoBehaviour
 {
     public Light colourLight;
+    [SerializeField] private GameObject lightObject;
+    public Color currentColour;
+
+    void Start()
+    {
+        // Get the current color of the light object
+        currentColour = lightObject.GetComponent<Light>().color;
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -41,5 +49,12 @@ public class LightDetection : MonoBehaviour
             print("changes back to gray");
         }
 
+    }
+
+    void ChangeObjectColor(GameObject obj)
+    {
+        // Get the material of the object and change its color to match the current light color
+        Material mat = obj.GetComponent<Renderer>().material;
+        mat.color = currentColour;
     }
 }
