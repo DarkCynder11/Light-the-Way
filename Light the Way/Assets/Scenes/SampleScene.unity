@@ -1621,7 +1621,7 @@ MonoBehaviour:
   - color: {r: 1, g: 0, b: 0, a: 1}
     tag: Red
     interactableMaterial: {fileID: 2100000, guid: 06bfc6aa3ad351b45aae1c607fba970c, type: 2}
-  - color: {r: 1, g: 1, b: 0, a: 1}
+  - color: {r: 1, g: 1, b: 0.016, a: 1}
     tag: Yellow
     interactableMaterial: {fileID: 2100000, guid: 80eed8d03b3944f41ada5742cfbd687f, type: 2}
   nonInteractableMaterial: {fileID: 2100000, guid: 497ec3d00395b044994a28d6ced5291f, type: 2}

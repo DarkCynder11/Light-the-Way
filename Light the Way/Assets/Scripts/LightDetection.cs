@@ -42,24 +42,13 @@ public class LightDetection : MonoBehaviour
         }
         else if (other.gameObject.tag == "Yellow" && colourLight.color == Color.yellow)
         {
-            print("interactable");
+            print("yellow");
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Blue" && colourLight.color == Color.blue)
-        {
-            print("changes back to gray");
-        }
-        else if (other.gameObject.tag == "Green" && colourLight.color == Color.green)
-        {
-            print("changes back to gray");
-        }
-        else if (other.gameObject.tag == "Yellow" && colourLight.color == Color.yellow)
-        {
-            print("changes back to gray");
-        }
+        print("back to gray");
 
     }
 

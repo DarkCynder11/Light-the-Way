@@ -84,7 +84,7 @@ public class ColourSelector : MonoBehaviour
                 break;
 
             case LightColour.Yellow:
-                testLight.color = Color.yellow;
+                testLight.color = new Color(1f, 0.92f, 0.016f);
                 break;
         }
     }

@@ -9,12 +9,19 @@ public class ChangeColour : MonoBehaviour
 
     private Color currentColor;
 
+    void Start()
+    {
+        colorTagPairs[3].color = new Color(1f, 0.92f, 0.016f);
+    }
+
+
     void OnTriggerEnter(Collider other)
     {
         foreach (ColorTagPair colorTagPair in colorTagPairs)
         {
             if (other.CompareTag(colorTagPair.tag) && colorTagPair.color == currentColor)
             {
+                
                 Renderer renderer = other.GetComponent<Renderer>();
                 if (renderer != null)
                 {
@@ -29,7 +36,9 @@ public class ChangeColour : MonoBehaviour
         foreach (ColorTagPair colorTagPair in colorTagPairs)
         {
             if (other.CompareTag(colorTagPair.tag) && colorTagPair.color == currentColor)
+
             {
+                print(colorTagPair.tag + " tag");
                 Renderer renderer = other.GetComponent<Renderer>();
                 if (renderer != null)
                 {
@@ -56,6 +65,7 @@ public class ChangeColour : MonoBehaviour
 
     void Update()
     {
+        
         Light lightComponent = GetComponentInChildren<Light>();
         if (lightComponent != null)
         {
