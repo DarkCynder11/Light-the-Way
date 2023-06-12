@@ -83,6 +83,7 @@ public class ColourSelector : MonoBehaviour
                 testLight.color = Color.green;
                 break;
 
+                //this section allows for precise colour picking for the light's colour value.
             case LightColour.Yellow:
                 testLight.color = new Color(1f, 0.92f, 0.016f);
                 break;
