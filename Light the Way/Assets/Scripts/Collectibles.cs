@@ -12,6 +12,7 @@ public class Collectibles : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Collect();
+
         }
     }
 
@@ -24,7 +25,9 @@ public class Collectibles : MonoBehaviour
         AudioSource.PlayClipAtPoint(collectSound, transform.position);
 
         // Remove the collectible from the scene
-        Destroy(gameObject);
+        Destroy(this.gameObject);
+        Debug.Log("Destroyed?");
+
     }
 }
 
