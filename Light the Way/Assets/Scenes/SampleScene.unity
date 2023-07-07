@@ -2303,7 +2303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreValue: 1
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 16fba6d30ed741d4a9fdd6e79ee2f3ac, type: 3}
 --- !u!135 &997056083
 SphereCollider:
   m_ObjectHideFlags: 0
