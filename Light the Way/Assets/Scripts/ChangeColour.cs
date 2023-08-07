@@ -7,6 +7,8 @@ public class ChangeColour : MonoBehaviour
     public ColorTagPair[] colorTagPairs;
     public Material nonInteractableMaterial;
 
+    private bool interactable;
+
     private Color currentColor;
 
     void Start()
@@ -21,12 +23,18 @@ public class ChangeColour : MonoBehaviour
         {
             if (other.CompareTag(colorTagPair.tag) && colorTagPair.color == currentColor)
             {
-                
+                interactable = true;
+
                 Renderer renderer = other.GetComponent<Renderer>();
                 if (renderer != null)
                 {
                     renderer.material = colorTagPair.interactableMaterial;
                 }
+            }
+
+            else
+            {
+                interactable = false;
             }
         }
     }
@@ -50,6 +58,8 @@ public class ChangeColour : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
+        interactable = false;
+
         foreach (ColorTagPair colorTagPair in colorTagPairs)
         {
             if (other.CompareTag(colorTagPair.tag))
@@ -61,6 +71,11 @@ public class ChangeColour : MonoBehaviour
                 }
             }
         }
+    }
+
+    public bool IsInteractable() 
+    {
+        return interactable;
     }
 
     void Update()
