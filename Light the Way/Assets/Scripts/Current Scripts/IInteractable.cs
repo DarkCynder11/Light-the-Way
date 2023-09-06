@@ -4,5 +4,7 @@ using UnityEngine;
 
 public interface IInteractable
 {
-    void Interact();
+    void Interact(ColourSystem.LightColour lightColour);
+
+    ColourSystem.LightColour GetColour();
 }
