@@ -15,11 +15,16 @@ public class InteractionHandler : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        interactable ??= other.GetComponent<IInteractable>();
+        interactable = other.GetComponent<IInteractable>();
+        if (colourSelectorScript.colourSystem.GetColour() == interactable.GetColour())
+        {
+            interactable.Collision();
+        }
     }
 
     void OnTriggerStay(Collider other)
     {
+        interactable = other.GetComponent<IInteractable>();
 
         if (interactable != null && (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("Interact")))
         {

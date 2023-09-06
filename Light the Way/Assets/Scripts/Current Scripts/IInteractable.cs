@@ -9,4 +9,6 @@ public interface IInteractable
     ColourSystem.LightColour GetColour();
 
     void Setup();
+
+    void Collision();
 }

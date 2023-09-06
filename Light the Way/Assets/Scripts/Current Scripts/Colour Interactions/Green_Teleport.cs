@@ -4,7 +4,7 @@ public class Green_Teleport : MonoBehaviour, IInteractable
 {
     public Transform teleportTarget; // Teleportation target for green color
     public ColourSystem m_colourSystem;
-    Renderer renderer;
+    private new Renderer renderer;
     public Material inactiveMaterial, activeMaterial;
 
     private void Awake()
@@ -15,7 +15,7 @@ public class Green_Teleport : MonoBehaviour, IInteractable
     public void Setup()
     {
         m_colourSystem = new ColourSystem(ColourSystem.LightColour.Green);
-        renderer = GetComponent<Renderer>();
+        renderer ??= GetComponent<Renderer>();
         renderer.material = inactiveMaterial;
     }
 
@@ -44,4 +44,8 @@ public class Green_Teleport : MonoBehaviour, IInteractable
         return m_colourSystem.GetColour();
     }
 
+    public void Collision()
+    {
+        renderer.material = activeMaterial;
+    }
 }
