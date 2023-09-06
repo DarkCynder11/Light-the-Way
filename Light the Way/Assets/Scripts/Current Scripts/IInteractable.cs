@@ -7,4 +7,6 @@ public interface IInteractable
     void Interact(ColourSystem.LightColour lightColour);
 
     ColourSystem.LightColour GetColour();
+
+    void Setup();
 }

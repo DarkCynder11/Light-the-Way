@@ -5,28 +5,25 @@ public class Green_Teleport : MonoBehaviour, IInteractable
     public Transform teleportTarget; // Teleportation target for green color
     public ColourSystem m_colourSystem;
     Renderer renderer;
-    float timer;
     public Material inactiveMaterial, activeMaterial;
 
     private void Awake()
+    {
+        Setup();
+    }
+
+    public void Setup()
     {
         m_colourSystem = new ColourSystem(ColourSystem.LightColour.Green);
         renderer = GetComponent<Renderer>();
         renderer.material = inactiveMaterial;
     }
 
-
-
     public void Interact(ColourSystem.LightColour playerColour)
     {
-        timer = 5f;
         renderer.material = activeMaterial;
         Debug.Log("interacted");
         TeleportPlayer();
-    }
-    private void Update()
-    {
-        timer -= Time.deltaTime;
     }
 
     private void TeleportPlayer()
