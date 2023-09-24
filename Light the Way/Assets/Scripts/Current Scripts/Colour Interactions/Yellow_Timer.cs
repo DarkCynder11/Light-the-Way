@@ -62,4 +62,9 @@ public class Yellow_Timer : MonoBehaviour, IInteractable
     {
         renderer.material = activeMaterial;
     }
+
+    public void Revert()
+    {
+        throw new System.NotImplementedException();
+    }
 }

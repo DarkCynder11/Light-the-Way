@@ -6,44 +6,80 @@ public class InteractionHandler : MonoBehaviour
 {
 
     [SerializeField] private PlayerColourSelector colourSelectorScript;
-    IInteractable interactable = null;
+    private List<IInteractable> interactionList = new List<IInteractable>();
 
     void Start()
     {
-        colourSelectorScript ??= GetComponent<PlayerColourSelector>();
+        colourSelectorScript ??= GetComponentInParent<PlayerColourSelector>();
     }
 
     void OnTriggerEnter(Collider other)
     {
-        interactable = other.GetComponent<IInteractable>();
-        if (colourSelectorScript.colourSystem.GetColour() == interactable.GetColour())
+        if (other.gameObject.GetComponent<IInteractable>() != null)
         {
-            interactable.Collision();
+            if (!interactionList.Contains(other.gameObject.GetComponent<IInteractable>()))
+            {
+                interactionList.Add(other.GetComponent<IInteractable>());
+                Debug.Log("Found interactable: " + interactionList);
+                CheckInteraction(colourSelectorScript.colourSystem.GetColour());
+            }
         }
     }
 
     void OnTriggerStay(Collider other)
     {
-        interactable = other.GetComponent<IInteractable>();
-
-        if (interactable != null && (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("Interact")))
+        if (other.gameObject.GetComponent<IInteractable>() != null)
         {
-            if (colourSelectorScript.colourSystem.GetColour() == interactable.GetColour())
+            if (!interactionList.Contains(other.GetComponent<IInteractable>()))
             {
-                interactable.Interact(colourSelectorScript.colourSystem.GetColour());
+                interactionList.Add(other.GetComponent<IInteractable>());
+            }
+        }
+
+        if (interactionList.Count > 0f && (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("Interact")))
+        {
+            //FOR MYA ;3
+            //for (int i = 0; i < interactionList.Count; i++) {
+            //    if (colourSelectorScript.colourSystem.GetColour() == interactionList[i].GetColour()) {
+            //        interactionList[i].Interact(colourSelectorScript.colourSystem.GetColour());
+            //    }
+            //}
+
+            foreach (IInteractable interactableObject in interactionList) {
+                if (colourSelectorScript.colourSystem.GetColour() == interactableObject.GetColour()) {
+                    interactableObject.Interact(colourSelectorScript.colourSystem.GetColour());
+                }
             }
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        interactable = null;
+        if (other.GetComponent<IInteractable>() != null && interactionList.Contains(other.GetComponent<IInteractable>()) && interactionList.Count > 0f)
+        {
+            other.GetComponent<IInteractable>().Revert();
+            interactionList.Remove(other.GetComponent<IInteractable>());
+            interactionList.TrimExcess();
+        }
+
     }
 
-    void Update()
+    public void CheckInteraction(ColourSystem.LightColour newColor)
     {
-     
+        foreach (IInteractable interactableOb in interactionList)
+        {
+            if (interactableOb.GetColour() == newColor)
+            {
+                interactableOb.Collision();
+            }
+            
+            else
+            {
+                interactableOb.Revert();
+            }
+        }
     }
+
 }
 //public class ColorTagPair
 //{

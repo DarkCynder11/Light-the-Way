@@ -52,6 +52,10 @@ public class PlayerColourSelector : MonoBehaviour
 
     private void UpdateTestLightColour()
     {
+        if (GetComponentInChildren<InteractionHandler>() != null)
+        {
+            GetComponentInChildren<InteractionHandler>().CheckInteraction(selectedColour);
+        }
         switch (selectedColour)
         {
             case ColourSystem.LightColour.White:

@@ -7,9 +7,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float speed = 5;
     [SerializeField] private float turnSpeed = 360;
-    
-    [SerializeField] private float jumpHeight = 5;
-    
+
+    [SerializeField] private float jumpHeight = 6;
+    [SerializeField] private float swimJumpHeight = 15;
+
+
     private Vector3 input;
     private Vector3 jumpInput;
 
@@ -51,20 +53,22 @@ public class PlayerController : MonoBehaviour
 
     private void GatherJumpInput()
     {
-        switch (currentState)
+        if (Input.GetButtonDown("Jump"))
         {
-            case (PlayerMovementState.Normal):
-                if (Input.GetButtonDown("Jump"))
-                {
-                    Debug.Log("jumping normal");
+            switch (currentState)
+            {
+                case (PlayerMovementState.Normal):
+                    rb.drag = 1;
                     rb.AddForce(new Vector3(0, jumpHeight, 0), ForceMode.Impulse);
-                }
-                break;
-            
-            case (PlayerMovementState.Swimming):
-                break;
+                    break;
+
+                case (PlayerMovementState.Swimming):
+                    rb.drag = 6;
+                    rb.AddForce(new Vector3(0, swimJumpHeight, 0), ForceMode.Impulse);
+                    break;
+            }
         }
-       
+
     }
 
     //based on player input, will change the forward direction of the character.
@@ -79,7 +83,7 @@ public class PlayerController : MonoBehaviour
             var relative = (transform.position + skewedInput) - transform.position;
             var playerRotation = Quaternion.LookRotation(relative, Vector3.up);
 
-            transform.rotation = Quaternion.RotateTowards(transform.rotation,playerRotation, turnSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, playerRotation, turnSpeed * Time.deltaTime);
         }
 
     }
@@ -88,20 +92,20 @@ public class PlayerController : MonoBehaviour
     void Move()
     {
         rb.MovePosition(transform.position + (transform.forward * input.magnitude) * speed * Time.deltaTime);
-        Debug.Log("moving");
     }
 
     public void ChangeMovementState(PlayerMovementState newState)
     {
         if (newState != currentState)
         {
-        currentState = newState;
+            currentState = newState;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Water Pool") {
+        if (other.gameObject.name == "Water Pool")
+        {
             Debug.Log("Fucking help me");
             ChangeMovementState(PlayerMovementState.Swimming);
         }
@@ -109,7 +113,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.name == "Water Pool") {
+        if (other.gameObject.name == "Water Pool")
+        {
             ChangeMovementState(PlayerMovementState.Normal);
         }
     }

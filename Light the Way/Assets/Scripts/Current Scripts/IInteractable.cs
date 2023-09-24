@@ -11,4 +11,6 @@ public interface IInteractable
     void Setup();
 
     void Collision();
+
+    void Revert();
 }

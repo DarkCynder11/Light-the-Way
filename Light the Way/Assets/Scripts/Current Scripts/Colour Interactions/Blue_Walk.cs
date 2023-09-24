@@ -15,13 +15,15 @@ public class Blue_Walk : MonoBehaviour, IInteractable
 
     public void Setup()
     {
-        m_colourSystem = new ColourSystem(ColourSystem.LightColour.Green);
+        m_colourSystem = new ColourSystem(ColourSystem.LightColour.Blue);
         renderer ??= GetComponent<Renderer>();
         renderer.material = inactiveMaterial;
     }
     public void Collision()
     {
-        //GetComponent<Renderer>().material = activeMaterial;
+        renderer.material = activeMaterial;
+        GetComponent<BoxCollider>().isTrigger = false;
+        Debug.Log("Collided");
     }
 
     public ColourSystem.LightColour GetColour()
@@ -31,9 +33,12 @@ public class Blue_Walk : MonoBehaviour, IInteractable
 
     public void Interact(ColourSystem.LightColour playerColour)
     {
-        renderer.material = activeMaterial;
-        Debug.Log("interacted");
-        //TeleportPlayer(); walk method will go here.
+        Debug.Log("No Interaction");
+    }
+    public void Revert()
+    {
+        renderer.material = inactiveMaterial;
+        GetComponent<BoxCollider>().isTrigger = true;
     }
 
 }

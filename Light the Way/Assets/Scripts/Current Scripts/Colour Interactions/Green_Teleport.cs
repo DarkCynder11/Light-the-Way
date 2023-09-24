@@ -48,4 +48,8 @@ public class Green_Teleport : MonoBehaviour, IInteractable
     {
         renderer.material = activeMaterial;
     }
+    public void Revert()
+    {
+        renderer.material = inactiveMaterial;
+    }
 }
