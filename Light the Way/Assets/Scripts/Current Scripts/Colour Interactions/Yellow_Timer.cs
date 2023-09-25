@@ -26,7 +26,7 @@ public class Yellow_Timer : MonoBehaviour, IInteractable
 
     public void Interact(ColourSystem.LightColour playerColour)
     {
-        timer = 10f;
+        timer = 5f;
         renderer.material = activeMaterial;
         IlluminateObject();
         timerOn = true;
@@ -65,6 +65,6 @@ public class Yellow_Timer : MonoBehaviour, IInteractable
 
     public void Revert()
     {
-        throw new System.NotImplementedException();
+        renderer.material = inactiveMaterial;
     }
 }
