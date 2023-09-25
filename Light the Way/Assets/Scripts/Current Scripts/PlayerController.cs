@@ -58,12 +58,10 @@ public class PlayerController : MonoBehaviour
             switch (currentState)
             {
                 case (PlayerMovementState.Normal):
-                    rb.drag = 1;
                     rb.AddForce(new Vector3(0, jumpHeight, 0), ForceMode.Impulse);
                     break;
 
                 case (PlayerMovementState.Swimming):
-                    rb.drag = 6;
                     rb.AddForce(new Vector3(0, swimJumpHeight, 0), ForceMode.Impulse);
                     break;
             }
@@ -91,7 +89,19 @@ public class PlayerController : MonoBehaviour
     //player movement
     void Move()
     {
-        rb.MovePosition(transform.position + (transform.forward * input.magnitude) * speed * Time.deltaTime);
+        switch (currentState)
+        {
+            case (PlayerMovementState.Normal):
+                rb.drag = 1;
+                rb.MovePosition(transform.position + (transform.forward * input.magnitude) * speed * Time.deltaTime);
+                break;
+
+            case (PlayerMovementState.Swimming):
+                rb.drag = 6;
+                rb.MovePosition(transform.position + (transform.forward * input.magnitude) * speed * Time.deltaTime);
+                break;
+        }
+       
     }
 
     public void ChangeMovementState(PlayerMovementState newState)
@@ -104,16 +114,15 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Water Pool")
+        if (other.gameObject.GetComponent<Blue_Walk>())
         {
-            Debug.Log("Fucking help me");
             ChangeMovementState(PlayerMovementState.Swimming);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.name == "Water Pool")
+        if (other.gameObject.GetComponent<Blue_Walk>())
         {
             ChangeMovementState(PlayerMovementState.Normal);
         }
