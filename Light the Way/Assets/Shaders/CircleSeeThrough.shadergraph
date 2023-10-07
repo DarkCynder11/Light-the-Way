@@ -456,7 +456,7 @@
     "m_VertexContext": {
         "m_Position": {
             "x": 1064.0,
-            "y": 74.99999237060547
+            "y": 47.00001907348633
         },
         "m_Blocks": [
             {
@@ -1186,9 +1186,9 @@
     "m_ShaderOutputName": "BaseColor",
     "m_StageCapability": 2,
     "m_Value": {
-        "x": 0.5,
-        "y": 0.5,
-        "z": 0.5
+        "x": 0.11320751905441284,
+        "y": 0.11320751905441284,
+        "z": 0.11320751905441284
     },
     "m_DefaultValue": {
         "x": 0.0,
