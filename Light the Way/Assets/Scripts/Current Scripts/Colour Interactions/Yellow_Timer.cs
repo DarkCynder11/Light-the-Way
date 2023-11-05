@@ -27,7 +27,7 @@ public class Yellow_Timer : MonoBehaviour, IInteractable
 
     public void Interact(ColourSystem.LightColour playerColour)
     {
-        timer = 10f;
+        timer = 12f;
         renderer.material = activeMaterial;
         IlluminateObject();
         timerOn = true;
@@ -54,9 +54,6 @@ public class Yellow_Timer : MonoBehaviour, IInteractable
     private void IlluminateObject()
     {
         lanLit.SetActive(true);
-        //get a reference to the holder for lanterns
-        
-        
     }
 
     public ColourSystem.LightColour GetColour()

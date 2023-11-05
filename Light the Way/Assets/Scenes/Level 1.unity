@@ -1214,7 +1214,7 @@ GameObject:
   - component: {fileID: 472647487}
   - component: {fileID: 472647486}
   m_Layer: 0
-  m_Name: Wall 7
+  m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2649,6 +2649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3f1bb1e2b4e7844a2051e491995398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  door: {fileID: 472647484}
 --- !u!1 &891009341
 GameObject:
   m_ObjectHideFlags: 0

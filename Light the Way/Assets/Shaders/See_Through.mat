@@ -85,7 +85,7 @@ Material:
     - _OcclusionStrength: 1
     - _Opacity: 1
     - _Parallax: 0.02
-    - _Size: 0
+    - _Size: 1
     - _Smoothness: 0.323
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -95,5 +95,5 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Position: {r: 0.51993394, g: 0.48115784, b: 18.484188, a: 0}
+    - _Position: {r: 0.51993394, g: 0.48115772, b: 18.48419, a: 0}
   m_BuildTextureStacks: []

@@ -7,18 +7,7 @@ public class LightPuzzle : MonoBehaviour
     private int lightCount = 0;
     private int maxLight = 5;
     List<string> lightNames = new List<string>();
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    public GameObject door;
 
     public void UpdateCount(int value, string lanternName)
     {
@@ -34,7 +23,8 @@ public class LightPuzzle : MonoBehaviour
                 if (lightCount >= maxLight)
                 {
                     Debug.Log("open door");
-                    //destroy game object with a reference 
+                    //destroy game object with a reference
+                    door.SetActive(false);
                 }
             }
         }
