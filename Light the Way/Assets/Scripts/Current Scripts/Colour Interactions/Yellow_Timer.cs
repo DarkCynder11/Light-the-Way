@@ -9,6 +9,7 @@ public class Yellow_Timer : MonoBehaviour, IInteractable
     float timer;
     public Material inactiveMaterial, activeMaterial;
     public GameObject lanLit;
+
     private bool timerOn = false;
 
     private void Awake()
@@ -26,10 +27,12 @@ public class Yellow_Timer : MonoBehaviour, IInteractable
 
     public void Interact(ColourSystem.LightColour playerColour)
     {
-        timer = 5f;
+        timer = 7f;
         renderer.material = activeMaterial;
         IlluminateObject();
         timerOn = true;
+        GetComponentInParent<LightPuzzle>().UpdateCount(1, timerOn);
+        Debug.Log("update count");
         
     }
     private void Update()
@@ -37,12 +40,12 @@ public class Yellow_Timer : MonoBehaviour, IInteractable
         if (timerOn)
         {
             timer -= Time.deltaTime;
-            Debug.Log(timer);
             if (timer <= 0f)
             {
                 lanLit.SetActive(false);
                 timerOn = false;
                 renderer.material = inactiveMaterial;
+                GetComponentInParent<LightPuzzle>().UpdateCount(-1);
             }
         }
         
@@ -51,6 +54,9 @@ public class Yellow_Timer : MonoBehaviour, IInteractable
     private void IlluminateObject()
     {
         lanLit.SetActive(true);
+        //get a reference to the holder for lanterns
+        
+        
     }
 
     public ColourSystem.LightColour GetColour()
