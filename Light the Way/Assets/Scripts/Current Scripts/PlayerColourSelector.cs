@@ -77,6 +77,14 @@ public class PlayerColourSelector : MonoBehaviour
             case ColourSystem.LightColour.Yellow:
                 testLight.color = new Color(1f, 0.92f, 0.016f);
                 break;
+
+            case ColourSystem.LightColour.Orange:
+                testLight.color = new Color(1f, 0.5f, 0.0f);
+                break;
+            
+            case ColourSystem.LightColour.Purple:
+                testLight.color = new Color(0.5f, 0f, 1f);
+                break;
         }
     }
 }

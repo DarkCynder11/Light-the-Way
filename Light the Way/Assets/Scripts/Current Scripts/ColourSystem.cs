@@ -13,6 +13,8 @@ public class ColourSystem
         Green,
         Blue,
         Yellow,
+        Orange,
+        Purple,
     };
 
     public ColourSystem(LightColour baseColour)
