@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Orange_Break : MonoBehaviour, IInteractable
+public class Orange_Build : MonoBehaviour, IInteractable
 {
     public ColourSystem m_colourSystem;
     private new Renderer renderer;
     public Material inactiveMaterial, activeMaterial;
-    //public GameObject brickBreak;
+    public GameObject brickBridge;
 
     private void Awake()
     {
@@ -19,19 +19,18 @@ public class Orange_Break : MonoBehaviour, IInteractable
         m_colourSystem = new ColourSystem(ColourSystem.LightColour.Orange);
         renderer ??= GetComponent<Renderer>();
         renderer.material = inactiveMaterial;
-        //brickBreak.SetActive(true);
+        brickBridge.SetActive(false);
     }
 
     public void Interact(ColourSystem.LightColour playerColour)
     {
         renderer.material = activeMaterial;
         Debug.Log("interacted");
-        BreakStone();
+        BuildBridge();
     }
-    private void BreakStone()
+    private void BuildBridge()
     {
-        this.gameObject.SetActive(false);
-        //Destroy(gameObject, 1f);
+        brickBridge.SetActive(true);
     }
 
     public ColourSystem.LightColour GetColour()
